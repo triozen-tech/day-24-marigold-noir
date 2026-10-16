@@ -50,12 +50,12 @@ renders/
 refs/
 .triozen-ref-browser/
 
-# template repo: skip raw media, frame folders and big videos (keep the .gitkeep placeholders)
-raw/*
-!raw/.gitkeep
+# Day 24: raw/ (Flow stills + Veo clips) is tracked; originals and generated frames are not
+raw/_orig/
 raw-orig/
 public/frames/*
 !public/frames/.gitkeep
 *.mp4
 *.webm
+!raw/*.mp4
 .cache/
