@@ -22,7 +22,7 @@ Layout **C · Lamplight** (picked from `day24/refs/layouts/`; A and B dropped). 
 | Section shape | Centred column, wide breathing room, one centred Italiana headline with an italic gold word per section | Calm, gallery-like; opposite of A's horizontal rails and B's giant type |
 | Cards | 1 px `#1b222d` line, flat `#090d14` fill, gold line on hover; no shadows, no radius (buttons are pills) | Keeps the noir flat so the light does the work |
 | Signature | **Seven rounds**: pinned flame film + a timeline of seven nodes lighting by scroll (**M422**), the petal lands in the flame | The one place the page slows to a held moment |
-| Loader | **I36 filament burst then breathe**, drawn as brass hairlines around the wordmark, then the hero opens (no shutter, no flash: Day 22 used a shutter) | Hairlines read as lamp wire; no earlier site used I36 |
+| Loader | **I39 Toran** (new code, not in MOTION-MENU before this site: it is added there): a thin gold thread draws across, marigold dots pop on along it, the wordmark hangs from the middle, then it lifts away into the hero (~1.1 s; no hairlines, shutter or flash) | The toran is the doorway garland of every Indian wedding; the first thing a guest passes under |
 | Traveller | **F1 waypoint travel** with one marigold petal PNG (see Petal path) | Day 24 is a travelling-object day |
 
 **Colour tokens** (`site/site.ts` theme, CSS variables `bg`, `surface`, `fg`, `muted`, `accent`, `accent-fg`, `line`):
@@ -48,7 +48,7 @@ Fonts via `site/fonts.ts` (`npm i` the pair): Italiana 400; Hanken Grotesk 300, 
 | # | Section | Layout code | Motion code | Reference |
 |---|---|---|---|---|
 | – | Nav | NV04 | M471 | ours |
-| – | Loader | – | I36 | ours |
+| – | Loader | – | I39 | ours |
 | 1 | Hero · the mandap | HR36 | **M328** + M37 light breath (+ soft lamp drift, see note) | ours |
 | 2 | The functions (haldi · mehendi · sangeet · wedding) | GL22 | **M241** deck spreads | ours |
 | 3 | The seven rounds (signature) | SY02 + film | **M422** timeline with progress line | ours |
@@ -72,7 +72,7 @@ Rule for every row: **a pure function of scroll position** (any speed, stop, or 
 
 | Section | Layout | Motion | How it plays here | Record mode (`?record=1`) |
 |---|---|---|---|---|
-| Loader | – | I36 | brass hairlines burst from the wordmark, breathe, then lift away as the hero's first frame is ready | plays once, then auto-scroll starts |
+| Loader | – | I39 | thread draws across (DrawSVG), marigold dots pop on along it in turn, the wordmark hangs from the middle and swings once, then the toran lifts away upward into the hero (~1.1 s total, hero first frame ready underneath) | plays once, then auto-scroll starts |
 | Nav | NV04 | M471 | top bar condenses into a floating glass pill after ~80 px of scroll; wordmark stays inside | follows scroll |
 | Hero | HR36 | M328 + M37 | the headline's words blur in one by one; a warm light breathes and drifts; hero film V1 (K1→K2, frames via `film-frames`) scrubs as a slow push-in with petals falling; idle: slow push continues, petals drift | scroll-driven push-in |
 | Functions | GL22 | M241 | pinned ~2.5 screens: four cards start stacked, fan out into a spread as you scroll, reverse on scroll back | scrub |
@@ -171,7 +171,7 @@ Batches follow Day 23: nothing attached first, then attached, then clips.
 | D3 | lehenga and dupatta fabric, zari folds | 3:4 | .jpg | `raw/d3-fabric.jpg` | nothing | details |
 | D4 | varmala garlands resting on a stand | 1:1 | .jpg | `raw/d4-garlands.jpg` | nothing | details, portfolio |
 | C1 | camera with a prime lens, macro of the lens glass | 16:9 | .jpg | `raw/c1-lens.jpg` | nothing | craft (sharp side; the blur is made in code) |
-| A1 | album with linen cover and ribbon, on a dark table | 3:4 | .jpg | `raw/a1-album.jpg` | nothing | album master, swatch 1, V3 start keyframe |
+| A1 | album with linen cover and ribbon, on a dark table | 3:4 | .jpg | `raw/a1-album.jpg` | nothing | album master, swatch 1, source for A1W/A2/A3 |
 | P1 | aisle lined with lamps, no people | 16:9 | .jpg | `raw/p1-aisle.jpg` | nothing | portfolio |
 | P2 | floor carpeted with marigold petals | 16:9 | .jpg | `raw/p2-petalfloor.jpg` | nothing | portfolio |
 | P3 | brass pooja thali with diyas | 16:9 | .jpg | `raw/p3-thali.jpg` | nothing | portfolio |
@@ -181,7 +181,7 @@ Batches follow Day 23: nothing attached first, then attached, then clips.
 | VD | vidaai: decorated car, rice and petal trail, closed door, no people | 16:9 | .jpg | `raw/vd-vidaai.jpg` | nothing | portfolio, V4 start keyframe |
 | PT | single marigold petal, macro, plain dark background | 1:1 | .jpg | `raw/pt-petal.jpg` | nothing | petal source; `npm run cutout` makes `public/images/marigold-noir/petal.png` after Batch 1 is saved |
 
-### Batch 2 · stills, attached (6)
+### Batch 2 · stills, attached (7)
 
 | ID | Item | Aspect | Ext | Save as | Attach | Used in |
 |---|---|---|---|---|---|---|
@@ -189,7 +189,8 @@ Batches follow Day 23: nothing attached first, then attached, then clips.
 | K4 | flame close, petals dropping in (seven rounds end frame) | 16:9 | .jpg | `raw/k4-flame-close.jpg` | `k3-flame.jpg` | flame film end keyframe |
 | A2 | same album, second cover colour (deep teal) | 3:4 | .jpg | `raw/a2-album-teal.jpg` | `a1-album.jpg` | album swatch 2 |
 | A3 | same album, third cover colour (brass silk) | 3:4 | .jpg | `raw/a3-album-brass.jpg` | `a1-album.jpg` | album swatch 3 |
-| A4 | same album open on a spread of blank dark pages | 16:9 | .jpg | `raw/a4-album-open.jpg` | `a1-album.jpg` | V3 end keyframe |
+| A1W | same album, wide frame: the closed album on the dark table, camera position fixed for the V3 pair | 16:9 | .jpg | `raw/a1w-album-wide.jpg` | `a1-album.jpg` | V3 start keyframe |
+| A4 | same album open on a spread of blank dark pages, **same camera position as A1W** | 16:9 | .jpg | `raw/a4-album-open.jpg` | `a1w-album-wide.jpg` | V3 end keyframe |
 | VD2 | vidaai from farther back: the car and petal trail small in the frame, no people | 16:9 | .jpg | `raw/vd2-vidaai-far.jpg` | `vd-vidaai.jpg` | V4 end keyframe |
 
 ### Batch 3 · clips (4)
@@ -198,10 +199,10 @@ Batches follow Day 23: nothing attached first, then attached, then clips.
 |---|---|---|---|---|---|---|
 | V1 | slow push-in on the mandap, petals falling (~8 s) | 16:9 | .mp4 | `raw/v1.mp4` | K1 + K2 | hero film (FrameScrub, `lib/chain.ts`) |
 | V2 | sacred flame breathing, petals dropping in (~8 s) | 16:9 | .mp4 | `raw/v2.mp4` | K3 + K4 | seven rounds film |
-| V3 | the album opens from closed cover to open spread (~6 s) | 16:9 | .mp4 | `raw/v3.mp4` | A1 + A4 | album section (replaces a code flip) |
+| V3 | the album opens from closed cover to open spread (~6 s) | 16:9 | .mp4 | `raw/v3.mp4` | A1W + A4 | album section (replaces a code flip) |
 | V4 | vidaai: the car and petal trail pulling away (~6 s) | 16:9 | .mp4 | `raw/v4.mp4` | VD + VD2 | footer backdrop |
 
-**Total: 29 generations = 25 Flow stills (19 + 6) + 4 Veo clips.** Clips go through `npm run film-frames` (≤ 12 MB each, watermark painted out in one batch with `clean-mark` into `raw/_orig`).
+**Total: 30 generations = 26 Flow stills (19 + 7) + 4 Veo clips.** Clips go through `npm run film-frames` at full quality (watermark painted out in one batch with `clean-mark` into `raw/_orig`). No size caps: the goal is the best output.
 
 ## Prompts (as run)
 

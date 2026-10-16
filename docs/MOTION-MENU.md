@@ -984,6 +984,7 @@ Grown from open animation libraries and award sites (log: `docs/MOTION-LOG.md`; 
 | I36 | **Filament burst then breathe** | Hair-line filaments burst out of the logo, breathe slowly around it while loading, then shoot outward as the page opens. | load | canvas/gsap | Skincare, science-led beauty, audio and lighting brands | Pages already using particle or line fields | I8 |
 | I37 | **Orbiting tiles forge the mark** | Eight glyph tiles orbit a tilted ring and light up one by one as the % climbs, then fly together and forge one glowing mark above the wordmark. | load | gsap | Watches, jewellery, gaming and tech launches | Minimal editorial brands, very short loads | I8 |
 | I38 | **Map folds into a paper plane** | A square trail map (contour lines, dotted red route) folds up on its centre crease into a paper plane that flies off top-right while a real 0–100 counter and bar run; then two cloud halves part onto the hero. CSS motion from the first paint. | load | css/gsap/svg | Travel, tours, maps, logistics, sites with a paper-plane travelling object | Brands with no journey story, long loads | I3 |
+| I39 | **Toran hangs the wordmark** | A thin thread draws across the screen (DrawSVG), marigold dots pop on along it in turn, the wordmark hangs from the middle and swings once, then the whole toran lifts away upward into the hero (~1.1 s). | load | gsap/svg | Weddings, festivals, hospitality, Indian craft and celebration brands | Minimal tech, very long names | I3 |
 
 ### L·micro · Hover, buttons & cursor (U)
 
