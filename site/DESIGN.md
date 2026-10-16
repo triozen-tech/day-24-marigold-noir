@@ -1,6 +1,6 @@
 # DESIGN.md · Day 24 · Marigold Noir
 
-**Mode: Pro** (LEAN: desktop 1440×900 only, no reel recording, manual filming, `?record=1` = smooth auto-scroll + record cursor with ≥ 3 `data-hover-demo` hovers).
+**Mode: Pro** (LEAN: desktop 1440×900 only). The reel is recorded with `npm run reel` (`?record=1`, about 36 s, same as Days 22 and 23); `?record=1` = smooth auto-scroll + record cursor with ≥ 3 `data-hover-demo` hovers.
 Layout **C · Lamplight** (picked from `day24/refs/layouts/`; A and B dropped). Mockup: `day24/refs/layouts/c-lamplight.html`.
 
 - **Brand:** Marigold Noir, a fictional wedding photography studio (India). Concept website, sample prices only.
@@ -74,17 +74,17 @@ Rule for every row: **a pure function of scroll position** (any speed, stop, or 
 |---|---|---|---|---|
 | Loader | – | I36 | brass hairlines burst from the wordmark, breathe, then lift away as the hero's first frame is ready | plays once, then auto-scroll starts |
 | Nav | NV04 | M471 | top bar condenses into a floating glass pill after ~80 px of scroll; wordmark stays inside | follows scroll |
-| Hero | HR36 | M328 + M37 | the headline's words blur in one by one; a warm light breathes and drifts; hero film V1 (K1→K2) scrubs as a slow push-in with petals falling; idle: slow push continues, petals drift | scroll-driven push-in |
+| Hero | HR36 | M328 + M37 | the headline's words blur in one by one; a warm light breathes and drifts; hero film V1 (K1→K2, frames via `film-frames`) scrubs as a slow push-in with petals falling; idle: slow push continues, petals drift | scroll-driven push-in |
 | Functions | GL22 | M241 | pinned ~2.5 screens: four cards start stacked, fan out into a spread as you scroll, reverse on scroll back | scrub |
-| Seven rounds | SY02 + film | M422 | **pinned ~5 screens**; V2 flame film scrubs under; a hairline gold progress line fills across seven nodes (I–VII), each node lights as it passes; flame breathes when idle | scrub |
+| Seven rounds | SY02 + film | M422 | **pinned ~5 screens**; V2 flame film (frames via `film-frames`) scrubs under; a hairline gold progress line fills across seven nodes (I–VII), each node lights as it passes; flame breathes when idle | scrub |
 | Details | GL11 | M147 | five stills at five depths; as the section scrolls, they drift and scale at different rates and settle into a loose cluster | scrub |
 | Craft | CP01 | M46 | scroll drags the gold divider across the lens: left blurred (code blur of the same still), right sharp | scrub, pinned ~1.5 screens |
 | Portfolio | GL02 | M428 | two rows of tiles tilted −4°; scroll slides them opposite ways and straightens them to 0° | scrub |
 | Packages | PR01 | M40 | three bars stack and pin in turn, each settling on top of the last; middle bar has the gold border | scrub |
-| Album | PS04 | M54 | pinned ~1.5 screens: the cover card flips open (Flip) into a product page; swatches and chips are live | scrub + one hover-click demo |
+| Album | PS04 | M54 | pinned ~2 screens: **V3** (frames via `film-frames`, scrubbed) opens the closed album to the open spread as you scroll; at the end M54 Flips the cover card into the buy box (swatches and chips live); crossfade join only between the V3 end frame and the card | scrub + one hover-click demo |
 | Reviews | SP12 | M236 | five quote tags fall in and pile with small tilts as the section arrives; reverse on scroll back | scrub |
 | Booking + FAQ | BK04 + FQ01 | M82 | a night-blue block wipes off the gold band; FAQ rows self-open in turn (idle) | scrub |
-| Footer | FO01 | M146 | giant wordmark starts large and docks small as the footer scrolls in; petal lands on it | scrub |
+| Footer | FO01 | M146 | **V4** (frames via `film-frames`, scrubbed) plays as a dim backdrop while the giant wordmark docks small and the petal lands on it; idle: last V4 frames breathe; no join | scrub |
 | **Traveller** | F1 | see below | one petal PNG moves between 7 measured anchors | scrub, never pauses |
 
 ### Travelling marigold petal (F1, 7 stops, from `day24/refs/moments.md`)
@@ -130,8 +130,9 @@ Custom cursor: a small brass ring that grows with a label (`data-cursor`): **Ope
 | Sticky buy box (PS04): price **sample**, Reserve button | album section |
 | Reserve animation: fill, "Held", petal burst | album card |
 | Cover detail loupe on hover (crops from the 2K source, lesson 146) | album cover |
+| Album open spread: the V3 end frame stays as the detail image | album card |
 
-## Reel time table (Pro, filmed by hand; target 25–40 s)
+## Reel time table (`npm run reel`, `?record=1`, about 36 s; target 25–40 s)
 
 | Part | Seconds |
 |---|---|
@@ -153,7 +154,7 @@ Custom cursor: a small brass ring that grows with a label (`data-cursor`): **Ope
 
 ## MISSING ASSETS
 
-Aspect ratios are 16:9, 9:16, 1:1 or 3:4 only (never 4:5). Stills are `.jpg`; the petal source is `.jpg` and the user supplies the transparent `.png` cut-out (Claude never makes cut-outs). Everything is **Flow (stills) or Veo (clips)**. A Flow edit attaches **one** image only (the master).
+Aspect ratios are 16:9, 9:16, 1:1 or 3:4 only (never 4:5). Stills are `.jpg`. The petal (PT) is cut out **after Batch 1 is saved**: `npm run cutout` turns `raw/pt-petal.jpg` into `public/images/marigold-noir/petal.png`. Everything is **Flow (stills) or Veo (clips)**. A Flow edit attaches **one** image only (the master).
 Batches follow Day 23: nothing attached first, then attached, then clips.
 
 ### Batch 1 · stills, nothing attached (19)
@@ -170,17 +171,17 @@ Batches follow Day 23: nothing attached first, then attached, then clips.
 | D3 | lehenga and dupatta fabric, zari folds | 3:4 | .jpg | `raw/d3-fabric.jpg` | nothing | details |
 | D4 | varmala garlands resting on a stand | 1:1 | .jpg | `raw/d4-garlands.jpg` | nothing | details, portfolio |
 | C1 | camera with a prime lens, macro of the lens glass | 16:9 | .jpg | `raw/c1-lens.jpg` | nothing | craft (sharp side; the blur is made in code) |
-| A1 | album with linen cover and ribbon, on a dark table | 3:4 | .jpg | `raw/a1-album.jpg` | nothing | album master, swatch 1 |
+| A1 | album with linen cover and ribbon, on a dark table | 3:4 | .jpg | `raw/a1-album.jpg` | nothing | album master, swatch 1, V3 start keyframe |
 | P1 | aisle lined with lamps, no people | 16:9 | .jpg | `raw/p1-aisle.jpg` | nothing | portfolio |
 | P2 | floor carpeted with marigold petals | 16:9 | .jpg | `raw/p2-petalfloor.jpg` | nothing | portfolio |
 | P3 | brass pooja thali with diyas | 16:9 | .jpg | `raw/p3-thali.jpg` | nothing | portfolio |
 | P4 | courtyard under string lights, empty | 16:9 | .jpg | `raw/p4-courtyard.jpg` | nothing | portfolio |
 | P5 | decorated gateway with marigold toran | 16:9 | .jpg | `raw/p5-gate.jpg` | nothing | portfolio |
 | P6 | reception table setting: candles, florals, empty | 16:9 | .jpg | `raw/p6-table.jpg` | nothing | portfolio |
-| VD | vidaai: decorated car, rice and petal trail, closed door, no people | 16:9 | .jpg | `raw/vd-vidaai.jpg` | nothing | portfolio, footer backdrop |
-| PT | single marigold petal, macro, plain dark background | 1:1 | .jpg | `raw/pt-petal.jpg` | nothing | petal source; user supplies `public/images/marigold-noir/petal.png` |
+| VD | vidaai: decorated car, rice and petal trail, closed door, no people | 16:9 | .jpg | `raw/vd-vidaai.jpg` | nothing | portfolio, V4 start keyframe |
+| PT | single marigold petal, macro, plain dark background | 1:1 | .jpg | `raw/pt-petal.jpg` | nothing | petal source; `npm run cutout` makes `public/images/marigold-noir/petal.png` after Batch 1 is saved |
 
-### Batch 2 · stills, attached (5)
+### Batch 2 · stills, attached (6)
 
 | ID | Item | Aspect | Ext | Save as | Attach | Used in |
 |---|---|---|---|---|---|---|
@@ -188,18 +189,19 @@ Batches follow Day 23: nothing attached first, then attached, then clips.
 | K4 | flame close, petals dropping in (seven rounds end frame) | 16:9 | .jpg | `raw/k4-flame-close.jpg` | `k3-flame.jpg` | flame film end keyframe |
 | A2 | same album, second cover colour (deep teal) | 3:4 | .jpg | `raw/a2-album-teal.jpg` | `a1-album.jpg` | album swatch 2 |
 | A3 | same album, third cover colour (brass silk) | 3:4 | .jpg | `raw/a3-album-brass.jpg` | `a1-album.jpg` | album swatch 3 |
-| A4 | same album open on a spread of blank dark pages | 16:9 | .jpg | `raw/a4-album-open.jpg` | `a1-album.jpg` | album detail (morph end) |
+| A4 | same album open on a spread of blank dark pages | 16:9 | .jpg | `raw/a4-album-open.jpg` | `a1-album.jpg` | V3 end keyframe |
+| VD2 | vidaai from farther back: the car and petal trail small in the frame, no people | 16:9 | .jpg | `raw/vd2-vidaai-far.jpg` | `vd-vidaai.jpg` | V4 end keyframe |
 
-### Batch 3 · clips (2)
+### Batch 3 · clips (4)
 
 | ID | Item | Aspect | Ext | Save as | Attach | Used in |
 |---|---|---|---|---|---|---|
 | V1 | slow push-in on the mandap, petals falling (~8 s) | 16:9 | .mp4 | `raw/v1.mp4` | K1 + K2 | hero film (FrameScrub, `lib/chain.ts`) |
 | V2 | sacred flame breathing, petals dropping in (~8 s) | 16:9 | .mp4 | `raw/v2.mp4` | K3 + K4 | seven rounds film |
+| V3 | the album opens from closed cover to open spread (~6 s) | 16:9 | .mp4 | `raw/v3.mp4` | A1 + A4 | album section (replaces a code flip) |
+| V4 | vidaai: the car and petal trail pulling away (~6 s) | 16:9 | .mp4 | `raw/v4.mp4` | VD + VD2 | footer backdrop |
 
-**Total: 26 generations = 24 Flow stills (19 + 5) + 2 Veo clips.** Clips go through `npm run film-frames` (≤ 12 MB each, watermark painted out in one batch with `clean-mark` into `raw/_orig`).
-
-**Code fallbacks** (if credits run short): hero and flame: K1 / K3 still with CSS petal particles and a canvas flame flicker (M15/M37); album swatches: tint one cover with `mix-blend-mode` (A2, A3); portfolio: reuse the detail and function stills (P1–P6 shrink to 3 and the rows repeat); blur side of the craft slider is already code; the petal falls back to a CSS/SVG petal (the mockup's).
+**Total: 29 generations = 25 Flow stills (19 + 6) + 4 Veo clips.** Clips go through `npm run film-frames` (≤ 12 MB each, watermark painted out in one batch with `clean-mark` into `raw/_orig`).
 
 ## Prompts (as run)
 
