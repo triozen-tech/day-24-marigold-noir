@@ -59,3 +59,10 @@ public/frames/*
 *.webm
 !raw/*.mp4
 .cache/
+
+# Day 24: rejected V4 takes stay on disk, not in git
+raw/v4.mp4
+raw/v4b-1.mp4
+raw/v4b-2.mp4
+raw/v4b-4.mp4
+shots/
