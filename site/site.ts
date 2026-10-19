@@ -5,7 +5,7 @@ export const meta: SiteMeta = {
   title: "Marigold Noir — Wedding photography",
   description: "Concept website: a wedding photography studio, noir and marigold.",
   loaderText: "Marigold Noir",
-  loader: false, // Round 2 builds the toran loader (I39)
+  loader: false, // the site's own toran loader (components/Loader.tsx, I39) replaces the engine loader
   cursor: true,
   record: { duration: 34 },
 };
