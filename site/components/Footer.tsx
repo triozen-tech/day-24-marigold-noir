@@ -14,7 +14,7 @@ export default function Footer() {
   const black = useRef<HTMLDivElement>(null);
   useFrame(track, (_t, still) => {
     const a = still ? 1 : approach(track.current!);
-    black.current!.style.opacity = String(1 - sm(a, 0.35, 1));
+    black.current!.style.opacity = String(1 - sm(a, 0.0, 0.4));
     const p = still ? 1 : prog(track.current!);
     const m = sm(p, 0.08, 0.62);
     wm.current!.style.transform = `translateY(${lerp(0, 360, m)}px) scale(${lerp(1, 0.22, m)})`;

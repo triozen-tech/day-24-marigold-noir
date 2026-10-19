@@ -11,7 +11,7 @@ export default function Craft() {
   const vig = useRef<HTMLDivElement>(null);
 
   useFrame(track, (t, still) => {
-    vig.current!.style.opacity = String(still ? 0 : 1 - sm(approach(track.current!), 0.25, 1)); // X15: the edges darken in, then reset
+    vig.current!.style.opacity = String(still ? 0 : 1 - sm(approach(track.current!), 0.35, 1)); // X15: the edges darken in, then reset
     const p = still ? 1 : sm(prog(track.current!), 0.05, 0.95);
     // divider runs right → left: the sharp side (truth) grows; a tiny idle wobble keeps it alive
     const x = lerp(92, 8, p) + (still ? 0 : Math.sin(t * 1.3) * 0.5);
