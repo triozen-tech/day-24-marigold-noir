@@ -4,7 +4,7 @@ body { font-weight: 300; line-height: 1.6; }
 .mn h1, .mn h2, .mn h3 { font-family: var(--font-display-family); font-weight: 400; letter-spacing: 0.01em; }
 .mn h2 { font-size: 96px; line-height: 1; text-align: center; }
 .mn h2 i, .mn h1 i { color: var(--accent); font-style: italic; }
-.mn-eb { display: block; text-align: center; margin-bottom: 22px; font: 500 11px var(--font-body-family); letter-spacing: 0.4em; text-transform: uppercase; color: var(--accent); }
+.mn-eb { display: block; text-align: center; margin-bottom: 22px; font: 500 12px var(--font-body-family); letter-spacing: 0.4em; text-transform: uppercase; color: var(--accent); }
 .mn-sec { position: relative; padding: 130px 0; }
 .mn-ph { position: relative; overflow: hidden; background: linear-gradient(160deg, #0f1822, #06090d); }
 .mn-ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -36,7 +36,7 @@ body { font-weight: 300; line-height: 1.6; }
 .mn-ba .mn-ph { position: absolute; inset: 0; }
 .mn-ba .blur { filter: blur(16px); clip-path: inset(0 50% 0 0); }
 .mn-ba .line { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--accent); box-shadow: 0 0 14px var(--accent); }
-.mn-ba .lb { position: absolute; bottom: 14px; z-index: 5; font: 500 11px var(--font-body-family); letter-spacing: 0.3em; color: #fff; }
+.mn-ba .lb { position: absolute; bottom: 14px; z-index: 5; font: 500 12px var(--font-body-family); letter-spacing: 0.3em; color: #fff; }
 
 /* portfolio */
 .mn-tr { overflow: hidden; padding: 130px 0; }
@@ -186,3 +186,7 @@ body { font-weight: 300; line-height: 1.6; }
 .mn-ft .cta h3 { font-size: 80px; line-height: 1.05; margin-bottom: 34px; }
 .mn-ft .cta h3 i { color: var(--accent); }
 .mn-ft-black { position: absolute; inset: 0; z-index: 9; background: #000; pointer-events: none; }
+
+/* cursor label: sits up and to the right of the pointer, smaller, so it never covers button or package text */
+.cursor-layer > div:first-child:has(span:not(:empty)) { margin: -46px 0 0 46px; width: 28px; height: 28px; }
+.cursor-layer > div:first-child:has(span:not(:empty)) span { font-size: 6px; }

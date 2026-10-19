@@ -195,3 +195,11 @@ Short rules learned the hard way on Days 1–7. `/new-site` and every round star
 158. **Cards must match what is on screen**: time every card window against the actual frames (use the `CARD` table), not the planned clip length.
 159. **Price cards need a hold**: a still between V11 and V12 (~6% of the scroll) gives the cards time to be read.
 160. **The cover badge is part of the locked spec** (empty black box for Instagram's view count); if a cover must have no empty box, paint it out after `npm run cover`, don't edit the script.
+
+## Day 24 · Marigold Noir
+162. **The kit cursor's label disc sits on the button text**: offset it with `margin` (GSAP writes `translate`/`scale` inline, so CSS `translate` is ignored), up and right of the pointer, smaller, and only when it has a label (`:has(span:not(:empty))`) (Day 24).
+163. **Flow mark over a ribbon or edge**: `clean-mark`'s texture borrow turns a nearby edge into a ghost copy. Check the corner at 3× after cleaning; if it ghosts, fill from wood or background above instead. Keep the old original under another name in `raw/_orig`, or the backup is skipped (Day 24).
+164. **A pinned card can morph into a buy box as a scrubbed rect lerp** (left/top/width/height by scroll) instead of Flip: stays reversible and exact at any scroll speed (Day 24).
+165. **A section that follows a fade-through-black needs its black to clear early**: a black overlay tied to late arrival left a 900 px black gap under the gold band; clear it in the first 40% (Day 24).
+166. **Small label text is 12px, not 11px** (eyebrows, slider labels), per Round 5 readability (Day 24).
+167. **Cover object**: a real album photo cut out with rembg works; put it above the empty top bar (`--object-cx 900 --object-bottom 610`) so it never hides nav links (Day 24).
