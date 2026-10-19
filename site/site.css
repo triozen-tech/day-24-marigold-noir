@@ -188,5 +188,5 @@ body { font-weight: 300; line-height: 1.6; }
 .mn-ft-black { position: absolute; inset: 0; z-index: 9; background: #000; pointer-events: none; }
 
 /* cursor label: sits up and to the right of the pointer, smaller, so it never covers button or package text */
-.cursor-layer > div:first-child:has(span:not(:empty)) { margin: -46px 0 0 46px; width: 28px; height: 28px; }
+.cursor-layer > div:first-child:has(span:not(:empty)) { margin: -62px 0 0 62px; width: 28px; height: 28px; }
 .cursor-layer > div:first-child:has(span:not(:empty)) span { font-size: 6px; }
