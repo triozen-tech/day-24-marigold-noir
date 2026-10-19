@@ -14,6 +14,7 @@ export default function Hero() {
   const track = useRef<HTMLElement>(null);
   const title = useRef<HTMLHeadingElement>(null);
   const sub = useRef<HTMLDivElement>(null);
+  const fade = useRef<HTMLDivElement>(null);
   const ent = useRef(isStatic() ? 1 : 0);
 
   useEffect(() => {
@@ -35,6 +36,7 @@ export default function Hero() {
     const out = sm(p, 0.35, 0.7);
     const h = title.current!;
     h.style.transform = `translateY(${-out * 60}px)`;
+    fade.current!.style.opacity = String(isStatic() ? 0 : sm(window.scrollY, 1900, 2450)); // X12: the film goes through black into the next section
     h.parentElement!.style.setProperty("--out", String(1 - out));
     sub.current!.style.setProperty("--out", String(1 - sm(p, 0.1, 0.3)));
   });
@@ -45,6 +47,8 @@ export default function Hero() {
         <FrameScrub frames="/frames/marigold-noir-v1" stillAt={0} className="mn-film" />
         <div className="mn-hero-shade" />
         <div className="mn-glow" />
+        <div ref={fade} className="mn-hero-fade" />
+        <div className="mn-pillar" data-anchor="pillar" />
         <div className="mn-title" style={{ opacity: "var(--out, 1)" }}>
           <div className="mn-title-shade" />
           <h1 ref={title}>

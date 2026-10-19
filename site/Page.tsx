@@ -11,6 +11,7 @@ import Album from "./components/Album";
 import Reviews from "./components/Reviews";
 import Booking from "./components/Booking";
 import Footer from "./components/Footer";
+import Traveller from "./components/Traveller";
 
 export default function Page() {
   return (
@@ -28,6 +29,7 @@ export default function Page() {
       <Reviews />
       <Booking />
       <Footer />
+      <Traveller />
     </main>
   );
 }

@@ -211,3 +211,7 @@ _Empty. The user pastes the Flow/Veo prompts here: asset ID · date · prompt (w
 ## Uniqueness
 
 8 of 8 choices different from Days 21–23, see `docs/SITES-LOG.md` (Uniqueness checks, Day 24 plan).
+
+## Transitions between sections (built in Round 3)
+
+Hero → Functions: X12 (film fades through black) · Functions → Rounds: X1 (rounds slides over the pinned deck, which dims) · Rounds → Details: X12 · Details → Craft: X15 (vignette spotlight) · Packages → Album: X6 (circle iris, album section only) · Booking → Footer: X12 (arrives through black). Traveller F1 petal built with 7 stops; it glides along the right gutter and fades where it would cross text.

@@ -15,6 +15,7 @@ export default function Rounds() {
   const cap = useRef<HTMLDivElement>(null);
   const nodes = useRef<(HTMLElement | null)[]>([]);
   const last = useRef(-1);
+  const out = useRef<HTMLDivElement>(null);
 
   useFrame(track, (_t, still) => {
     const p = still ? 1 : prog(track.current!);
@@ -26,6 +27,7 @@ export default function Rounds() {
       el?.classList.toggle("lit", lit);
       if (lit) n = i + 1;
     });
+    out.current!.style.opacity = String(still ? 0 : sm(p, 0.93, 1));
     if (n !== last.current) { last.current = n; cap.current!.textContent = n ? `Round ${ROUNDS[n - 1]} of VII` : "Before the fire"; }
   });
 
@@ -36,6 +38,7 @@ export default function Rounds() {
         <div className="shade" />
         <h2><span className="mn-eb" style={{ marginBottom: 14 }}>The ceremony</span>Seven rounds</h2>
         <div ref={cap} className="mn-cap" />
+        <div ref={out} className="mn-out" />
         <div className="mn-tl" data-anchor="flame">
           <div ref={fill} className="fill" />
           {ROUNDS.map((r, i) => (
